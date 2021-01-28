@@ -44,7 +44,7 @@ app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
 
 // port connection
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
