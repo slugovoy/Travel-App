@@ -54,15 +54,15 @@ export default function Home() {
 
   require('dotenv').config();
   
-  const REACT_APP_MAPBOX_TOKEN =
-    "pk.eyJ1Ijoic2x1Z292b3k4MSIsImEiOiJja2s3Yjk3d20wYzhoMnhtaXo0N3MxZnRoIn0.iRRYqUDtPqDSubEVG9RSgw";
+  // const REACT_APP_MAPBOX_TOKEN =
+  //   "pk.eyJ1Ijoic2x1Z292b3k4MSIsImEiOiJja2s3Yjk3d20wYzhoMnhtaXo0N3MxZnRoIn0.iRRYqUDtPqDSubEVG9RSgw";
 
   //  Rendering (point, setpoint and usestate)
   return (
     <ReactMapGL
       {...viewport}
       mapStyle="mapbox://styles/slugovoy81/ckk7ccpwo098t18qyk7ydw402"
-      mapboxApiAccessToken={REACT_APP_MAPBOX_TOKEN}
+      mapboxApiAccessToken="pk.eyJ1Ijoic2x1Z292b3k4MSIsImEiOiJja2s3Yjk3d20wYzhoMnhtaXo0N3MxZnRoIn0.iRRYqUDtPqDSubEVG9RSgw"
       onViewportChange={setViewport}
       onDblClick={showNewMarker}
     >
