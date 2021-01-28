@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.error{
+  color: red;
+}
+.marker{
+  transform: translate(-50%, -100%);
+}
+.marker.red path {
+  fill: red;
+}
+.marker.blue path {
+  fill: blue;
+}
+.popup{
+  width: 40vw;
+  padding: 1rem;
+}
+.popup img {
+  height: 200px;
+  width: auto;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+.rateDiv{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+
+}
+.newLocationForm label,
+.newLocationForm input,
+.newLocationForm textarea,
+.newLocationForm button {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  display: block;
+  width: 100%;
+}
+.buttonDiv{
+  display: inline;
+  margin-left: 8px;
+}
+.savedLink{
+  margin-left: 10px;
+}
+.mainScroll{
+  width: 95vw;
+  height: 65vh;
+  overflow: auto;
+}
+
+.cardText{
+  font-weight: 600;
+  font-style: italic;
+}

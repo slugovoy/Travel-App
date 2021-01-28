@@ -1,0 +1,16 @@
+.mainAppDiv{
+    background-image: url("./img1.jpg");
+    background-color: rgb(127, 140, 255);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    
+}
+
+.apptitle {
+    text-align: center;
+    font-size: 2.5rem;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
