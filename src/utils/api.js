@@ -1,12 +1,12 @@
 // const API_URL = "http://localhost:3000";
 
 export default async function entriesList() {
-    const response = await fetch(`/api/logs`);
+    const response = await fetch(`https://travel-server10.herokuapp.com/api/logs`);
     return response.json();
 }
 export async function createNewLocation(data) {
 
-    const response = await fetch(`/api/logs`,
+    const response = await fetch(`https://travel-server10.herokuapp.com/api/logs`,
     {
         method: 'POST',
         headers: {
@@ -19,7 +19,7 @@ export async function createNewLocation(data) {
 }
 export async function updateRating(data, _id) {
     console.log(data, _id)
-    const response = await fetch(`/api/logs`,
+    const response = await fetch(`https://travel-server10.herokuapp.com/api/logs`,
     {
         method: 'PUT',
         headers: {
