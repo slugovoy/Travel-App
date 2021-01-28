@@ -8,15 +8,8 @@
     "npm": "6.14.11"
 },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "npm run build && node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd ../client && npm run start",
-    "install": "cd ../client && npm install",
-    "build": "cd ../client && npm run build",
-    "dev": "nodemon server.js",
-    "seed": "node seeders/seeds.js"
+    
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
