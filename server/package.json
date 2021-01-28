@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Our project proposal [Here](https://docs.google.com/document/d/1RIcCoV3pUM4s_eIP8U6rwWWyTKbiM5N5iTAX1Xs6QL0/edit?usp=sharing)",
   "main": "server.js",
+  "engines": {
+    "node": "14.12.0",
+    "npm": "6.14.11"
+},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
