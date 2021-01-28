@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Marker, Popup } from "react-map-gl";
 import {updateRating} from "../utils/api"
 
