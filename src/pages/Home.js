@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL from "react-map-gl";
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import mapboxgl from "mapbox-gl";
 import entriesList from "../utils/api";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -10,8 +7,7 @@ import OldMarkers from "../components/OldMarkers";
 import NewMarkers from "../components/NewMarkers";
 import { Button } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-// eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+
 
 export default function Home() {
   const [showPopup, setPopup] = useState({});
@@ -22,16 +18,11 @@ export default function Home() {
     height: "100vh",
     latitude: 37.6,
     longitude: -95.665,
-    zoom: [3],
+    zoom: 3,
   });
   const [error, setError] = useState("");
   const { logout } = useAuth();
   const history = useHistory();
-
-  const Map = ReactMapboxGl({
-    accessToken:
-      "pk.eyJ1Ijoic2x1Z292b3k4MSIsImEiOiJja2s3Yjk3d20wYzhoMnhtaXo0N3MxZnRoIn0.iRRYqUDtPqDSubEVG9RSgw",
-  });
 
   async function getAllPlaces() {
     const entries = await entriesList();
@@ -61,29 +52,21 @@ export default function Home() {
     }
   }
 
-  require("dotenv").config();
-
-  // const REACT_APP_MAPBOX_ACCESS_TOKEN =
-  //   "pk.eyJ1Ijoic2x1Z292b3k4MSIsImEiOiJja2s3Yjk3d20wYzhoMnhtaXo0N3MxZnRoIn0.iRRYqUDtPqDSubEVG9RSgw";
-  // mapboxApiAccessToken={REACT_APP_MAPBOX_ACCESS_TOKEN}
+  require('dotenv').config();
+  
+  const REACT_APP_MAPBOX_TOKEN =
+    "pk.eyJ1Ijoic2x1Z292b3k4MSIsImEiOiJja2s3Yjk3d20wYzhoMnhtaXo0N3MxZnRoIn0.iRRYqUDtPqDSubEVG9RSgw";
 
   //  Rendering (point, setpoint and usestate)
   return (
-    <Map
-      // {...viewport}
-      // mapStyle="mapbox://styles/slugovoy81/ckk7ccpwo098t18qyk7ydw402"
-      style={"mapbox://styles/slugovoy81/ckk7ccpwo098t18qyk7ydw402"}
-      containerStyle={{
-        height: "100vh",
-        width: "100vw",
-      }}
+    <ReactMapGL
+      {...viewport}
+      mapStyle="mapbox://styles/slugovoy81/ckk7ccpwo098t18qyk7ydw402"
+      mapboxApiAccessToken={REACT_APP_MAPBOX_TOKEN}
       onViewportChange={setViewport}
       onDblClick={showNewMarker}
     >
-      <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
-        <Feature coordinates={[37.6, -95.665]} />
-      </Layer>
-      {/* {error && (
+      {error && (
         <Alert variant="filled" severity="error">
           {error}
         </Alert>
@@ -130,7 +113,7 @@ export default function Home() {
           getAllPlaces={getAllPlaces}
           showNewMarker={showNewMarker}
         />
-      ) : null} */}
-    </Map>
+      ) : null}
+    </ReactMapGL>
   );
 }

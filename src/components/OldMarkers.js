@@ -1,20 +1,20 @@
 import React, { useRef } from "react";
 import { Marker, Popup } from "react-map-gl";
-import {updateRating} from "../utils/api"
+// import {updateRating} from "../utils/api"
 
 function OldMarkers({ entry, setPopup, showPopup, viewport, setEntries }) {
   const newRatingRef = useRef()
   
   
-  function openForm(id){
-    const parentId = id;
-    console.log(newRatingRef.current.value)
-    console.log(parentId)
-    updateRating(newRatingRef.current.value, parentId);
-    newRatingRef.current.value = "";
+  // function openForm(id){
+  //   const parentId = id;
+  //   console.log(newRatingRef.current.value)
+  //   console.log(parentId)
+  //   updateRating(newRatingRef.current.value, parentId);
+  //   newRatingRef.current.value = "";
 
 
-  }
+  // }
 
 
   return (
@@ -69,14 +69,14 @@ function OldMarkers({ entry, setPopup, showPopup, viewport, setEntries }) {
                     entry.rating.length
                 )}
               </p>
-            <div className="rateDiv">
+            {/* <div className="rateDiv">
               <input name="addRating" ref={newRatingRef} placeholder="Add your rating here"/>
               <button className="btn btn-primary ml-4" 
               onClick={() => openForm(entry._id)}
               >
                 Add
               </button>
-            </div>
+            </div> */}
             {entry.image && <img src={entry.image} alt={entry.title} />}
           </div>
         </Popup>

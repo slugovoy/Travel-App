@@ -17,17 +17,17 @@ export async function createNewLocation(data) {
     );
     return response.json();
 }
-export async function updateRating(data, _id) {
-    console.log(data, _id)
-    const response = await fetch(`https://travel-server10.herokuapp.com/api/logs`,
-    {
-        method: 'PUT',
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(data, _id),
+// export async function updateRating(data, _id) {
+//     console.log(data, _id)
+//     const response = await fetch(`https://travel-server10.herokuapp.com/api/logs`,
+//     {
+//         method: 'PUT',
+//         headers: {
+//             "content-type": "application/json"
+//         },
+//         body: JSON.stringify(data, _id),
       
-    }
-    );
-    return response.json();
-}
+//     }
+//     );
+//     return response.json();
+// }

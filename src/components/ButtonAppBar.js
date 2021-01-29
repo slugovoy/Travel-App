@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
@@ -18,11 +19,11 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <div className="appbar">
-          <a href="/home">
+          <Link to="/home" variant="body2">
             <Typography variant="h4" className={classes.title}>
               Home
             </Typography>
-          </a>
+          </Link>
         </div>
       </AppBar>
     </div>
