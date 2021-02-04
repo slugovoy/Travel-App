@@ -30,7 +30,13 @@ export default function Home() {
   }
 
   useEffect(() => {
+    let isWorked = false;
     getAllPlaces();
+
+    return () => {
+      isWorked = true;
+    }
+
   }, []);
 
   const showNewMarker = (e) => {
@@ -61,7 +67,7 @@ export default function Home() {
   return (
     <ReactMapGL
       {...viewport}
-      mapStyle="mapbox://styles/slugovoy81/ckk7ccpwo098t18qyk7ydw402"
+      mapStyle="mapbox://styles/slugovoy81/ckkhv21vs059017ptpaoz6utu"
       mapboxApiAccessToken={REACT_APP_MAPBOX_TOKEN}
       onViewportChange={setViewport}
       onDblClick={showNewMarker}
@@ -102,7 +108,7 @@ export default function Home() {
           setPopup={setPopup}
           showPopup={showPopup}
           viewport={viewport}
-          setEntries={setEntries}
+          onClose={getAllPlaces}
         />
       ))}
       {newLocation ? (

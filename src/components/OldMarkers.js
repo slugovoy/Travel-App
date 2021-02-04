@@ -1,21 +1,20 @@
 import React, { useRef } from "react";
 import { Marker, Popup } from "react-map-gl";
-// import {updateRating} from "../utils/api"
+import { updateRating } from "../utils/api";
 
-function OldMarkers({ entry, setPopup, showPopup, viewport, setEntries }) {
-  const newRatingRef = useRef()
-  
-  
-  // function openForm(id){
-  //   const parentId = id;
-  //   console.log(newRatingRef.current.value)
-  //   console.log(parentId)
-  //   updateRating(newRatingRef.current.value, parentId);
-  //   newRatingRef.current.value = "";
+function OldMarkers({ entry, setPopup, showPopup, viewport, onClose}) {
+  const newRatingRef = useRef();
 
-
-  // }
-
+  function openForm(id) {
+    const parentId = id;
+    console.log(newRatingRef.current.value);
+    console.log(parentId);
+    updateRating({rating: newRatingRef.current.value}, parentId);
+    newRatingRef.current.value = "";
+    // TODO - make form close on click of ADD button
+    onClose();
+    
+  }
 
   return (
     <React.Fragment key={entry._id}>
@@ -62,21 +61,26 @@ function OldMarkers({ entry, setPopup, showPopup, viewport, setEntries }) {
             <small>
               Visited on: {new Date(entry.visitDate).toLocaleDateString()}
             </small>
-              <p>
-                Rating:{" "}
-                {Math.round(
-                  entry.rating.reduce((a, b) => parseInt(a) + parseInt(b)) /
-                    entry.rating.length
-                )}
-              </p>
-            {/* <div className="rateDiv">
-              <input name="addRating" ref={newRatingRef} placeholder="Add your rating here"/>
-              <button className="btn btn-primary ml-4" 
-              onClick={() => openForm(entry._id)}
+            <p>
+              Rating:{" "}
+              {Math.round(
+                entry.rating.reduce((a, b) => parseInt(a) + parseInt(b)) /
+                  entry.rating.length
+              )}
+            </p>
+            <div className="rateDiv">
+              <input
+                name="addRating"
+                ref={newRatingRef}
+                placeholder="Add your rating here"
+              />
+              <button
+                className="btn btn-primary ml-4"
+                onClick={() => openForm(entry._id)}
               >
                 Add
               </button>
-            </div> */}
+            </div>
             {entry.image && <img src={entry.image} alt={entry.title} />}
           </div>
         </Popup>
